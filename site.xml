@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+       http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+>
+
+<url>
+ <loc>https://z2m.wiki/right-sidebar.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+<url>
+ <loc>https://z2m.wiki/no-sidebar.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+<url>
+ <loc>mailto:yzg011@qq.com</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+<url>
+ <loc>https://t.me/z2m01</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+<url>
+ <loc>https://www.zigbee2mqtt.io/information/supported_devices.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+<url>
+ <loc>https://mp.weixin.qq.com/s/f3liKTNeDRVUrved65yhig</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+<url>
+ <loc>https://z2m.wiki/right-case.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+<url>
+ <loc>http://html5up.net</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+<url>
+ <loc>https://z2m.wiki/left-sidebar.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+<url>
+ <loc>https://www.facebook.com/saimen.yu.9</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+<url>
+ <loc>https://z2m.wiki/index.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+<url>
+ <loc>https://z2m.wiki/</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+<url>
+ <loc>https://shop68536829.taobao.com</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+<url>
+ <loc>https://mp.weixin.qq.com/s/YuX9XBoHnxN3zPbeK4g2Ug</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-08-29</lastmod>
+ <changefreq>always</changefreq>
+</url>
+
+</urlset>
