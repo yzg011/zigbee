@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+       http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+>
+
+<url>
+ <loc>https://z2m.wiki/product.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-09-01</lastmod>
+ <changefreq>hourly</changefreq>
+</url>
+
+<url>
+ <loc>https://z2m.wiki</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-09-01</lastmod>
+ <changefreq>hourly</changefreq>
+</url>
+
+<url>
+ <loc>https://z2m.wiki/right-sidebar.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-09-01</lastmod>
+ <changefreq>hourly</changefreq>
+</url>
+
+<url>
+ <loc>https://z2m.wiki/no-sidebar.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-09-01</lastmod>
+ <changefreq>hourly</changefreq>
+</url>
+
+
+
+
+<url>
+ <loc>https://z2m.wiki/right-case.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-09-01</lastmod>
+ <changefreq>hourly</changefreq>
+</url>
+
+
+<url>
+ <loc>https://z2m.wiki/left-sidebar.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-09-01</lastmod>
+ <changefreq>hourly</changefreq>
+</url>
+
+
+
+<url>
+ <loc>https://z2m.wiki/index.html</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-09-01</lastmod>
+ <changefreq>hourly</changefreq>
+</url>
+
+<url>
+ <loc>https://shop68536829.taobao.com</loc>
+ <priority>0.3</priority>
+ <lastmod>2021-09-01</lastmod>
+ <changefreq>hourly</changefreq>
+</url>
+
+
+
+</urlset>
