@@ -237,7 +237,7 @@ input, select, textarea {
 		@media screen and (max-width: 1680px) {
 
 			.container {
-				width: 50%;
+				width: 65%;
 			}
 
 		}
@@ -245,7 +245,7 @@ input, select, textarea {
 		@media screen and (max-width: 1280px) {
 
 			.container {
-				width: 60%;
+				width: 75%;
 			}
 
 		}
@@ -253,7 +253,7 @@ input, select, textarea {
 		@media screen and (max-width: 960px) {
 
 			.container {
-				width: 80%;
+				width: 85%;
 			}
 
 		}
