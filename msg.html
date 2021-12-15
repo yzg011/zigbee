@@ -11,9 +11,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="SHORTCUT ICON" href="images/favicon.ico">
+                <link rel="SHORTCUT ICON" href="images/favicon.ico">
 	</head>
-	<body class="left-sidebar is-preload">
+	<body class="right-sidebar is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -49,7 +49,7 @@
 									</ul>
 								</li>
 								<li><a href="left-sidebar.html">相关教程</a></li>
-								<li><a href="msg.html">常见问题</a></li>
+								<li><a href="right-case.html">相关案例</a></li>
 								<li><a href="right-sidebar.html">支持设备</a></li>
 								<li><a href="no-sidebar.html">联系我们</a></li>
 							</ul>
@@ -62,115 +62,161 @@
 
 					<div class="container">
 						<div class="row gtr-200">
+							<div class="col-8 col-12-mobile" id="content">
+								<article id="main">
+									<header>
+										<h2><a href="#">常见问题</a></h2>
+
+									</header>
+        <ul>
+
+            	<a href="">
+                    <p><em>Q:</em>想问一下zigbee wifi网关怎么连接另一个wifi呢？</p>
+                    <p><em>A:</em>连不上wifi 过1分钟左右网关会自动生成热点，您就可以配置新的wifi了。</p>
+                </a>
+
+
+            	<a href="">
+                    <p><em>Q:</em>usb zigbee网关的信号有办法增强吗？</p>
+                    <p><em>A:</em>           
+           1.可以通过加usb延长线或者自己加天线的办法解决。</p>
+           2.避免放在家用路由器旁边   会影响信号。</p>
+           3.修改zigbee2mqtt的配置 将信号功率设置固定的20db。</li></p>
+            experimental:transmit_power: 20。</p>				
+                </a>
+
+ 
+            	<a href="">
+                    <p><em>Q:</em>网关支持小米app吗？</p>
+                    <p><em>A:</em>不支持。</p>
+                </a>
+
+
+            	<a href="">
+                    <p><em>Q:</em>网关支持tuya app吗？</p>
+                    <p><em>A:</em>不支持。</p>
+                </a>
+
+            	<a href="">
+                    <p><em>Q:</em>网关用什么app？</p>
+                    <p><em>A:</em>可以搭配hass使用homeassistant app 或者苹果手机的homekit。</p>
+                </a>
+
+            	<a href="">
+                    <p><em>Q:</em>只买网关能使用吗？</p>
+                    <p><em>A:</em>不能，网关需要搭配hass 或者iobroker 或者nodered等智能家居平台使用。</p>
+                </a>
+            	<a href="">
+                    <p><em>Q:</em>这些平台都能在哪里运行？</p>
+                    <p><em>A:</em>可以运行在Windows liunx mac 等平台，通常运行在nas或者树莓派上，甚至有人运行在软路由上都是可以的。</p>
+                </a>
+				
+            	<a href="project.html">
+                    <p><em>Q:</em>有相关的案例吗？</p>
+                    <p><em>A:</em>有的，点击查看案例详情。</p>
+                </a>
+        </ul>
+
+								</article>
+								<a href="#" class="image fit"><img src="images/qa.png" alt="" /></a>
+							</div>
+
+
+							
+							
+							
 							<div class="col-4 col-12-mobile" id="sidebar">
 								<hr class="first" />
 								<section>
 									<header>
-										<h3><a href="#">公众号二维码</a></h3>
+										<h3><a href="#">支持的设备列表</a></h3>
 									</header>
 									<p>
-										<a href="#" class="image fit"><img src="images/xgg.jpg" alt="" /></a>
+										目前支持1874种设备，263种不同品牌的供应商.
+
+                                      
 									</p>
 									<footer>
-										<a href="https://mp.weixin.qq.com/s/0sqFfq26U-xeDL50eghTJA" class="button">了解更多</a>
+										<a href="https://www.zigbee2mqtt.io/information/supported_devices.html" class="button">了解更多</a>
 									</footer>
 								</section>
 								<hr />
 								<section>
 									<header>
-										<h3><a href="#">zigbee网关教程</a></h3>
+										<h3><a href="#">国内品牌</a></h3>
 									</header>
 									<p>
-										各种zigbee2mqtt网关教程.
+										支持了大部分国内有名的品牌，没列出来的并不代表不支持.
 									</p>
 									<div class="row gtr-50">
 										<div class="col-4">
-											<a href="#" class="image fit"><img src="images/cc2652P-Z2M.jpg" alt="" /></a>
+											<a href="#" class="image fit"><img src="images/xm.jpg" alt="" /></a>
 										</div>
 										<div class="col-8">
-											<h4>CC2652P</h4>
+											<h4>小米绿米</h4>
 											<p>
-												<a href="https://mp.weixin.qq.com/s/4_o1XoaiMVB0goy0FX6L7w">CC2652P zigbee wifi 网关教程</a>.
+												小米绿米家的绝大部分zigbee设备.
 											</p>
 										</div>
 										<div class="col-4">
-											<a href="#" class="image fit"><img src="images/cc2652P-Z2M.jpg" alt="" /></a>
+											<a href="#" class="image fit"><img src="images/or.jpg" alt="" /></a>
 										</div>
 										<div class="col-8">
-											<h4>CC2538</h4>
+											<h4>欧瑞博</h4>
 											<p>
-												<a href="https://mp.weixin.qq.com/s/f3liKTNeDRVUrved65yhig">CC2538 zigbee wifi 网关教程</a>
+												见设备列表.
 											</p>
 										</div>
 										<div class="col-4">
-											<a href="#" class="image fit"><img src="images/cc2652P-Z2M.jpg" alt="" /></a>
+											<a href="#" class="image fit"><img src="images/aq.jpg" alt="" /></a>
 										</div>
 										<div class="col-8">
-											<h4>CC2530</h4>
+											<h4>Aqara</h4>
 											<p>
-												<a href="https://mp.weixin.qq.com/s/YuX9XBoHnxN3zPbeK4g2Ug">CC2530 zigbee wifi 二合一 V9网关教程.</a>
+												绝大部分支持.
 											</p>
 										</div>
 										<div class="col-4">
-											<a href="#" class="image fit"><img src="images/640.png" alt="" /></a>
+											<a href="#" class="image fit"><img src="images/ZBMINI.jpg" alt="" /></a>
 										</div>
 										<div class="col-8">
-											<h4><a href="https://mp.weixin.qq.com/s/Z4MZzcqLpkUpt34L7hx9-g">ZHA使用教程</a></h4>
+											<h4>sonoff</h4>
 											<p>
-												
-                                           需要的安装的软件：
-
-                                             homeassistant
-
-                                                 mqtt broker.
+												见设备列表.
 											</p>
 										</div>
 										<div class="col-4">
-											<a href="#" class="image fit"><img src="images/add.jpg" alt="" /></a>
+											<a href="#" class="image fit"><img src="images/tuya.jpg" alt="" /></a>
 										</div>
 										<div class="col-8">
-											<h4>Hassio 安装zigbee2mqtt教程</h4>
+											<h4>tuya涂鸦</h4>
 											<p>
-												Add the repository URL under Supervisor → Add-on store → ⋮ → 
-Manage add-on repositories:
-https://github.com/zigbee2mqtt/hassio-zigbee2mqtt.
+												见设备列表.
 											</p>
 										</div>
 									</div>
 									<footer>
-										<a href="https://mp.weixin.qq.com/s/0sqFfq26U-xeDL50eghTJA" class="button">更多最新相关教程</a>
+										<a href="https://www.zigbee2mqtt.io/information/supported_devices.html" class="button">查看详细列表</a>
 									</footer>
 								</section>
 							</div>
-							<div class="col-8 col-12-mobile imp-mobile" id="content">
-								<article id="main">
-									
-									<h3 id="for-home-assistant-zha">For Home Assistant (ZHA)</h3>
-
-<p>In Home Assistant (requires version 0.113+) go to <strong>Configuration - Integrations</strong>, click the <strong>+</strong> icon, search for ZHA integration and select it.</p>
-
-<p><a href="#" class="image featured"><img src="assets/images/sonoff_ZBBridge_zha.jpg" alt="Gateway ZHA Configuration" /></a></p>
-
-
-<ol>
-  <li>choose “Enter Manually” for serial port</li>
-  <li>for Radio Type choose “EZSP”</li>
-  <li>under Serial device path enter <code>socket://[gateway_ip]:6638</code> replacing <code>[gateway_ip]</code> with its IP address. Do not use hostnames.
-    <ul>
-      <li>if you changed the port number use yours</li>
-      <li>set port speed to “115200”</li>
-    </ul>
-  </li>
-  <li>when the Gateway is discovered you will get a confirmation message</li>
-</ol>
-<p><a href="#" class="image featured"><img src="assets/images/sonoff_ZBBridge_zha2.jpg" alt="Gateway ZHA Configuration" /></a></p>
-
-
-								</article>
-							</div>
+							
+							
+							
+							
 						</div>
+					
+						
+						
 						<hr />
+					
+						
+						
+						
 						<div class="row">
+
+
+						
 							<article class="col-4 col-12-mobile special">
 								<a href="#" class="image featured"><img src="images/cc2652P-Z2M.jpg" alt="" /></a>
 								<header>
@@ -205,7 +251,6 @@ https://github.com/zigbee2mqtt/hassio-zigbee2mqtt.
 					</section>
 
 				</div>
-
 			<!-- Footer -->
 				<div id="footer">
 					<div class="container">
@@ -347,7 +392,6 @@ https://github.com/zigbee2mqtt/hassio-zigbee2mqtt.
 				</div>
 
 		</div>
-
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
