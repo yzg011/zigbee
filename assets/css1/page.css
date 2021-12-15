@@ -1,0 +1,9 @@
+
+a:hover{ color:#E52129;}
+.pages{ width:100%; text-align:center; margin-bottom:0px;}
+.pages a{ display:inline-block; *display:inline; zoom:1; height:25px; line-height:25px; border:2px solid #eee; margin:0 1px; font-size:15px; color:#555; padding:0 8px;}
+.pages a.now{ color:#FFF; font-weight:bold; background:#910023; border-color:#910023;}
+
+
+
+
