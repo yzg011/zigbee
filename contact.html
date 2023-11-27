@@ -177,13 +177,18 @@ var _hmt = _hmt || [];
 <div class="Content-Main">
     <div class="Content-Main1">
         <h1>Contact Us</h1>
+
+    <iframe  width=500 height=60 frameborder=0 id="myiframe" name="myiframe"></iframe>
+
+
     </div>
-    <form action="https://api2.pushdeer.com/message/push?" method="post" class="form-report">
+    <form action="https://api2.pushdeer.com/message/push?" method="post" class="form-report"   target="myiframe">
+
         <label>
             <span>Pushkey:</span>
-            <select name="pushkey" class="select2">
+            <select name="pushkey" class="select2" target="myiframe">
                 <option value="PDU7216Tm5Q7uZKqmuT7nXIQhcoJ7BKo5pIWRSl2">pushkey1</option>
-                <option value="PDU7216TsGKonRQTuMjLkop81IqDgpOiGGNImSa8">pushkey2</option>
+                <option value="PDU26756TuxtJforny8RmopZ7FALh6flZAYV0Glyx">pushkey2</option>
             </select>
 
         </label>
