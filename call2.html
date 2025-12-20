@@ -150,27 +150,46 @@ var _hmt = _hmt || [];
     </div>
     <form action="https://api2.pushdeer.com/message/push?" method="post" class="form-report"   target="myiframe">
 
-        <label>
-            <span></span>
-			请选择发给谁
-            <select name="pushkey" class="select2" target="myiframe">
-			<!-- 如果不需要显示选择key，可以加上style="display: none;"  -->
-                <option value="PDU7216TYXOgVHVER5A5kIdJvmu3cDYkrAPIEGsS">主播</option>
-                <option value="PDU7216TP6XGR4t2ocaToCQSXsQdXJ8tU6FTd0VR">小刚哥</option>
-            </select>
+	    <div class="input-container">
+        <label for="userInput">输入Key：</label>
+        <input type="text" id="userInput" name="userInput" placeholder="请输入App上的Key">
+    </div>
+    <div class="input-container">
+        <label for="pushkey">发送给谁
+        <select id="pushkey" name="pushkey" class="select2">
+            <option value="">请选择发给谁</option>
+            <option value="PDU7216TYXOgVHVER5A5kIdJvmu3cDYkrAPIEGsS">主播</option>
+            <option value="PDU7216TP6XGR4t2ocaToCQSXsQdXJ8tU6FTd0VR">小刚哥</option>
+        </select>
+		</label>
+		
+    </div>
+    <script>
+        document.getElementById('userInput').addEventListener('input', function() {
+            const inputValue = this.value;
+            const selectElement = document.getElementById('pushkey');
+            selectElement.innerHTML = ''; // 清空原有选项
+            if (inputValue) {
+                const option = document.createElement('option');
+                option.value = inputValue;
+                option.textContent = inputValue;
+                selectElement.appendChild(option);
+            }
+        });
+    </script>
 
-        </label>
+
 		
         <label>
-            <span></span>
-			请输入消息类型
-            <select name="type" class="select1" >
+          消息类型		
+            <select name="type" class="select1">
 			<!-- 如果不需要显示选择key，可以加上style="display: none;"  -->
 			    <option value="desp">文本</option>
 			    <option value="image">图片链接</option>
 				<option value="markdown">markdown</option>
             </select>
-        </label>
+        </label>>
+
 		
         <label>
             
@@ -211,6 +230,7 @@ animated-button:hover {
 <img src="images/qr1.png"  width="163" height="195" style="float: right;">
 	</body>
 </html>
+
 
 
 
