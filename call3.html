@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>chat here</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    .floating-link {
+      position: absolute;
+      animation: float 6s ease-in-out infinite;
+      z-index: 10;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .floating-link:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    }
+    @keyframes float {
+      0% {
+        transform: translate(0px, 0px) rotate(0deg);
+      }
+      33% {
+        transform: translate(50px, -30px) rotate(5deg);
+      }
+      66% {
+        transform: translate(-20px, 40px) rotate(-5deg);
+      }
+      100% {
+        transform: translate(0px, 0px) rotate(0deg);
+      }
+    }
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+      70% { box-shadow: 0 0 0 20px rgba(255, 255, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+    }
+    .content-card {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+  
+  
+    <style type="text/css">
+        .Content-Main{
+            max-width: 600px;
+            margin: auto;
+            margin-top: 50px;
+            padding: 20px 30px 20px 30px;
+            font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-shadow: 1px 1px 1px #FFF;
+            border: 1px solid #DDD;
+            border-radius: 5px;
+            color: #888;
+            background: #FFF;
+        }
+        .Content-Main h1{
+            display: block;
+            padding: 0px 0px 10px 40px;
+            margin: -10px -30px 30px -30px;
+            font: 25px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            border-bottom: 1px solid #DADADA;
+            color: #888;
+        }
+        .Content-Main h1>span{
+            display: block;
+            font-size: 11px;
+        }
+        .Content-Main label{
+            display: block;
+            margin: 0px 0px 5px;
+        }
+        .Content-Main label>span{
+            float: left;
+            width: 20%;
+            padding-right: 10px;
+            margin-top: 10px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            text-align: right;
+            color: #333;
+        }
+        .Content-Main input[type="text"],.Content-Main textarea{
+            width: 100%;
+            height: 20px;
+            padding: 5px 0px 5px 5px;
+            margin-bottom: 16px;
+            margin-right: 6px;
+            margin-top: 2px;
+            line-height: 15px;
+            border-radius: 4px;
+            border: 1px solid #CCC;
+            color: #888;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+        .select1{
+            width: 70%;
+			height: 10%;
+            border-radius: 4px;
+            border: 1px solid #CCC;
+            color: #888;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+        .select2{
+            width: 70%;
+			height: 10%;
+            border-radius: 4px;
+            border: 1px solid #CCC;
+            color: #888;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+        .Content-Main textarea{
+            width: 100%;
+            height: 200px;
+            padding: 5px 0px 0px 5px;
+        }
+        .button{
+            padding: 5px 5px 5px 5px;
+            margin-left: 0px;
+            border-radius: 4px;
+            border:1px solid #CCC;
+            background: #FFF;
+            color: #333;
+        }
+        .button:hover{
+            color: #333;
+            background-color: #EBEBEB;
+            border-color: #ADADAD;
+        }
+		
+
+
+button {
+   background-color: #00b3b4;
+   color: white;
+   padding: 10px 10px;
+   border: none;
+   font-size: 1.4rem;
+   cursor: pointer;
+   transition: all ease 0.3s;
+}
+animated-button:hover {
+   animation: waving 2s linear infinite;
+}
+@keyframes waving {
+   from {
+       background-position: 0 0;
+   }
+   to {
+       background-position: 46px 0;
+   }
+}
+    </style>
+</head>
+<body class="min-h-screen flex items-left justify-left p-4">
+  <!-- 主要内容区域 -->
+  <div class="content-card rounded-3xl p-8 md:p-12 max-w-2xl w-full text-center text-white">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">欢迎访问我们的网站</h1>
+<div class="Content-Main">
+    <div class="Content-Main1">
+        <h1>Chat here</h1>
+
+    <iframe width="500" height="80" frameborder="0" id="myiframe" name="myiframe" src="https://www.baidu.com/"></iframe>
+
+
+    </div>
+    <form action="https://api2.pushdeer.com/message/push?" method="post" class="form-report" target="myiframe">
+	
+	
+	    <div class="input-container">
+        <label></label> 输入Key
+        <input type="text" id="userInput" name="userInput"  placeholder="请输入App上的Key">
+		
+		
+    </div>
+    <div class="input-container">
+        <label for="pushkey">发送给谁
+        <select id="pushkey" name="pushkey" class="select2">
+            <option value="">请选择发给谁</option>
+            <option value="PDU7216TYXOgVHVER5A5kIdJvmu3cDYkrAPIEGsS">主播</option>
+            <option value="PDU7216TP6XGR4t2ocaToCQSXsQdXJ8tU6FTd0VR">小刚哥</option>
+        </select>
+		
+    </div>
+    <script>
+        document.getElementById('userInput').addEventListener('input', function() {
+            const inputValue = this.value;
+            const selectElement = document.getElementById('pushkey');
+            selectElement.innerHTML = ''; // 清空原有选项
+            if (inputValue) {
+                const option = document.createElement('option');
+                option.value = inputValue;
+                option.textContent = inputValue;
+                selectElement.appendChild(option);
+            }
+        });
+    </script>
+
+
+		
+        <label>
+          消息类型		
+            <select name="type" class="select1">
+			<!-- 如果不需要显示选择key，可以加上style="display: none;"  -->
+			    <option value="desp">文本</option>
+			    <option value="image">图片链接</option>
+				<option value="markdown">markdown</option>
+            </select>
+        </label>
+		
+
+		
+        <label>
+             <span>Mesaage</span>
+            <textarea id="mesaage" name="text" placeholder="chat here"></textarea>
+        </label>
+
+        <!-- <label> -->
+            <!-- <input id="sendButton" type="submit" class="button" value="发送给我"> -->
+                       <!-- 扫描下方轻app，告诉我key就能相互匿名聊天了 <br> -->
+        <!-- </label>			 -->
+        <button id="sendButton" >发送</button>	
+		
+		
+    <script>
+        document.getElementById('sendButton').addEventListener('click', function() {
+            const inputValue = document.getElementById('mesaage').value;
+            // 模拟发送逻辑
+            console.log('发送内容:', inputValue);
+            // 延迟0.01秒清空文本框
+            setTimeout(() => {
+                document.getElementById('mesaage').value = '';
+            }, 10);
+        });
+    </script>	
+		
+		
+		
+
+    </form>
+
+  </div>
+  </div>
+
+  <!-- 移动的跳转链接 -->
+  <!-- <a href="https://example.com"  -->
+     <!-- class="floating-link bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-4 px-8 rounded-full text-lg flex items-center justify-center pulse" -->
+     <!-- style="top: 20%; left: 10%;"> -->
+    <!-- <i class="fas fa-external-link-alt mr-2"></i>立即跳转 -->
+  <!-- </a> -->
+
+  <!-- 第二个移动链接 -->
+  <a href="https://example2.com" 
+     class="floating-link bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-3 px-6 rounded-full text-sm flex items-center justify-center"
+     style="top: 70%; left: 80%; animation-delay: 1s;">
+    <i class="fas fa-link mr-1"></i>备用链接
+  </a>
+
+  <!-- 第三个移动链接 -->
+  <!-- <a href="https://example3.com"  -->
+     <!-- class="floating-link bg-gradient-to-r from-red-500 to-pink-600 text-white font-bold py-3 px-6 rounded-full text-sm flex items-center justify-center" -->
+     <!-- style="top: 40%; left: 75%; animation-delay: 2s;"> -->
+    <!-- <i class="fas fa-arrow-right mr-1"></i>快速通道 -->
+  <!-- </a> -->
+
+  <script>
+    // 使链接在视窗内移动
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('.floating-link');
+      
+      function moveLinks() {
+        links.forEach(link => {
+          const x = Math.random() * (window.innerWidth - link.offsetWidth);
+          const y = Math.random() * (window.innerHeight - link.offsetHeight);
+          link.style.left = x + 'px';
+          link.style.top = y + 'px';
+        });
+      }
+      
+      // 每3秒重新定位链接
+      setInterval(moveLinks, 3000);
+      
+      // 初始定位
+      moveLinks();
+    });
+  </script>
+</body>
+</html>
