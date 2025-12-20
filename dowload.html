@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App下载中心</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+    }
+    .download-card {
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .download-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    .qr-code-container {
+      transition: transform 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .qr-code-container:hover {
+      transform: scale(1.03);
+    }
+    .platform-button {
+      transition: all 0.2s ease;
+    }
+    .platform-button:hover {
+      transform: scale(1.05);
+    }
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 max-w-5xl w-full">
+    <!-- 头部标题区域 -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">欢迎使用我们的私聊轻应用</h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">体验极致便捷功能，享受随时随地的私聊服务</p>
+    </div>
+
+    <!-- 下载卡片区域 -->
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <!-- Android 下载卡片 -->
+      <div class="download-card bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 border border-green-200">
+        <div class="flex items-center mb-6">
+          <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mr-4">
+            <i class="fab fa-android text-white text-2xl"></i>
+          </div>
+          <h2 class="text-2xl font-bold text-gray-800">Android版</h2>
+        </div>
+        
+        <div class="qr-code-container bg-white p-4 mb-6 inline-block">
+          <img src="al.png" alt="Android App下载二维码" class="w-48 h-48">
+        </div>
+        
+        <p class="text-gray-600 mb-6">扫描二维码或点击下方按钮下载</p>
+        
+        <a href="https://pan.baidu.com/s/1LuZVK-ZvUiV5mIhmn0O6gQ" class="platform-button bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-xl flex items-center justify-center">
+          <i class="fab fa-google-play mr-2"></i>Google Play下载
+        </a>
+        
+        <div class="mt-4 text-center">
+          <a href="https://pan.baidu.com/s/1LuZVK-ZvUiV5mIhmn0O6gQ" class="text-green-600 hover:text-green-800 font-medium">直接APK下载</a>
+        </div>
+      </div>
+
+      <!-- iOS 下载卡片 -->
+      <div class="download-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200">
+        <div class="flex items-center mb-6">
+          <div class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center mr-4">
+            <i class="fab fa-apple text-white text-2xl"></i>
+          </div>
+          <h2 class="text-2xl font-bold text-gray-800">iOS版</h2>
+        </div>
+        
+        <div class="qr-code-container bg-white p-4 mb-6 inline-block">
+          <img src="https://z2m.store/images/qr1.png" alt="iOS App下载二维码" class="w-48 h-48">
+        </div>
+        
+        <p class="text-gray-600 mb-6">扫描轻APP码或点击下方按钮下载</p>
+        
+        <a href="https://apps.apple.com/cn/app/pushdeer/id1596771139" class="platform-button bg-gray-800 hover:bg-black text-white font-semibold py-3 px-6 rounded-xl flex items-center justify-center pulse-animation">
+          <i class="fab fa-app-store mr-2"></i>App Store下载
+        </a>
+        
+        <div class="mt-4 text-center">
+          <a href="#" class="text-gray-600 hover:text-gray-800 font-medium">TestFlight测试版</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 应用特色介绍 -->
+    <div class="bg-gray-50 rounded-2xl p-8 mb-10">
+      <h3 class="text-2xl font-bold text-gray-800 text-center mb-8">App核心功能</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-bolt text-blue-500 text-2xl"></i>
+          </div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-2">极速体验</h4>
+          <p class="text-gray-600">IOS直接扫码轻app，即可体验隐私畅聊</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-shield-alt text-purple-500 text-2xl"></i>
+          </div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-2">极致隐私</h4>
+          <p class="text-gray-600">一码即可建立畅聊，消息自动销毁</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-sync-alt text-green-500 text-2xl"></i>
+          </div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-2">实时同步</h4>
+          <p class="text-gray-600">多设备数据同步，无缝切换</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部说明 -->
+    <div class="text-center text-gray-600">
+      <p class="mb-2">支持 Android 5.0+ 和 iOS 12.0+</p>
+      <p>如无法扫码，请在手机浏览器中打开本页</p>
+      <div class="mt-6 flex justify-center space-x-6">
+        <a href="https://z2m.store/no-sidebar.html" class="text-gray-500 hover:text-gray-700">联系我们</a>
+        <a href="https://z2m.store/call.html" class="text-gray-500 hover:text-gray-700">返回聊天</a>
+      </d>
+    </div>
+  </div>
+</body>
+</html>
