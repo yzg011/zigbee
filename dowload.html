@@ -132,6 +132,49 @@
       </div>
     </div>
 
+ <!-- 移动的跳转链接 -->
+  <!-- <a href="https://example.com"  -->
+     <!-- class="floating-link bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-4 px-8 rounded-full text-lg flex items-center justify-center pulse" -->
+     <!-- style="top: 20%; left: 10%;"> -->
+    <!-- <i class="fas fa-external-link-alt mr-2"></i>立即跳转 -->
+  <!-- </a> -->
+
+  <!-- 第二个移动链接 -->
+  <a href="https://z2m.store/call.html" 
+     class="floating-link bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold py-3 px-6 rounded-full text-sm flex items-center justify-center"
+     style="top: 70%; left: 80%; animation-delay: 1s;">
+    <i class="fas fa-link mr-1"></i>返回聊天
+  </a>
+
+  <!-- 第三个移动链接 -->
+  <a href="https://z2m.store/call.html" 
+     class="floating-link bg-gradient-to-r from-red-500 to-pink-600 text-white font-bold py-3 px-6 rounded-full text-sm flex items-center justify-center"
+     style="top: 40%; left: 75%; animation-delay: 2s;"> 
+   <i class="fas fa-arrow-right mr-1"></i>返回聊天
+  </a>
+
+  <script>
+    // 使链接在视窗内移动
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('.floating-link');
+      
+      function moveLinks() {
+        links.forEach(link => {
+          const x = Math.random() * (window.innerWidth - link.offsetWidth);
+          const y = Math.random() * (window.innerHeight - link.offsetHeight);
+          link.style.left = x + 'px';
+          link.style.top = y + 'px';
+        });
+      }
+      
+      // 每3秒重新定位链接
+      setInterval(moveLinks, 3000);
+      
+      // 初始定位
+      moveLinks();
+    });
+  </script>
+    
     <!-- 底部说明 -->
     <div class="text-center text-gray-600">
       <p class="mb-2">支持 Android 5.0+ 和 iOS 12.0+</p>
