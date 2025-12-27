@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>外挂链接管理工具</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen p-6">
+  <div class="max-w-4xl mx-auto">
+    <header class="text-center mb-10">
+      <h1 class="text-3xl md:text-4xl font-bold text-indigo-700">🔗 外挂链接管理工具</h1>
+      <p class="mt-2 text-gray-600">轻松管理和展示你的外部链接资源</p>
+    </header>
+
+    <main class="bg-white rounded-xl shadow-lg p-6 mb-8 fade-in">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+        <h2 class="text-xl font-semibold text-gray-800">外挂链接列表</h2>
+        <button id="addLinkBtn" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition flex items-center">
+          <i class="fas fa-plus mr-2"></i> 添加链接
+        </button>
+      </div>
+
+      <div id="linkContainer" class="space-y-4">
+        <!-- 动态插入链接卡片 -->
+      </div>
+    </main>
+
+    <footer class="text-center text-gray-500 text-sm">
+      &copy; 2025 外挂链接工具 | 简洁高效地管理外部链接
+    </footer>
+  </div>
+
+  <!-- 添加/编辑链接模态框 -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg w-11/12 max-w-md p-6 relative">
+      <h3 class="text-lg font-semibold mb-4" id="modalTitle">添加新链接</h3>
+      <form id="linkForm">
+        <input type="hidden" id="editIndex">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-medium mb-1" for="title">标题</label>
+          <input type="text" id="title" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-medium mb-1" for="url">链接地址</label>
+          <input type="url" id="url" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+        </div>
+        <div class="flex justify-end space-x-3">
+          <button type="button" id="cancelBtn" class="px-4 py-2 text-gray-600 hover:text-gray-800">取消</button>
+          <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">保存</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
