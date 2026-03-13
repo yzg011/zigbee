@@ -7,13 +7,13 @@
   <title>公司地址展示</title>
   <link href="tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <script type="text/javascript" src="https://api.map.baidu.com/place/v2/detail?ak=ihs3u0Mi7p8ulTVdTiO8GL1CEozvMu56"></script>
+  <script type="text/javascript" src="https://api.map.baidu.com/place/v3/detail?ak=ihs3u0Mi7p8ulTVdTiO8GL1CEozvMu56"></script>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
   <div class="container mx-auto px-4 py-8">
     <div class="text-center mb-8">
       <h1 class="text-4xl font-bold text-gray-800 mb-2">公司地址展示</h1>
-      <p class="text-gray-600">查看我们的办公位置，支持地图缩放功能</p>
+      <p class="text-gray-600">查看我们的办公位置</p>
     </div>
     
     <div class="bg-white rounded-2xl shadow-xl overflow-hidden max-w-4xl mx-auto">
@@ -21,28 +21,20 @@
         <div class="flex items-center justify-between">
           <h2 class="text-2xl font-semibold text-gray-800">
             <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
-            北京总部
+            深圳坪山
           </h2>
-          <div class="flex space-x-2">
-            <button id="zoomIn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300">
-              <i class="fas fa-search-plus mr-1"></i>放大
-            </button>
-            <button id="zoomOut" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition duration-300">
-              <i class="fas fa-search-minus mr-1"></i>缩小
-            </button>
-          </div>
+
         </div>
       </div>
-      
-      <div id="map" class="w-full h-96"></div>
-      
+      <img src="2.png" alt="描述文字">
+  
       <div class="p-6 bg-gray-50">
         <div class="flex flex-wrap items-center justify-between">
           <div class="flex items-center mb-4 md:mb-0">
             <i class="fas fa-building text-blue-500 text-xl mr-3"></i>
             <div>
               <p class="font-medium text-gray-800">公司地址</p>
-              <p class="text-gray-600">北京市海淀区中关村大街1号海龙大厦</p>
+              <p class="text-gray-600">深圳市海淀区中关村大街1号海龙大厦</p>
             </div>
           </div>
           <div class="flex items-center">
@@ -51,7 +43,7 @@
               <p class="font-medium text-gray-800">联系电话</p>
               <p class="text-gray-600">010-12345678</p>
             </div>
-          </div>
+
         </div>
       </div>
     </div>
@@ -62,7 +54,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div class="border-l-4 border-blue-500 pl-4 py-2">
             <h4 class="font-medium text-gray-800">地铁</h4>
-            <p class="text-gray-600 text-sm">地铁4号线中关村站A出口，步行500米</p>
+            <p class="text-gray-600 text-sm">地铁14号快线坪山围站A出口，步行800米</p>
           </div>
           <div class="border-l-4 border-green-500 pl-4 py-2">
             <h4 class="font-medium text-gray-800">公交</h4>
@@ -77,59 +69,6 @@
     </div>
   </div>
 
-  <script>
-    let map;
-    let marker;
-    
-    function initMap() {
-      // 初始化地图，设置中心点坐标和地图级别
-      map = new BMap.Map("map");
-      const point = new BMap.Point(116.320, 39.915); // 中关村坐标
-      map.centerAndZoom(point, 16);
-      
-      // 启用滚轮缩放
-      map.enableScrollWheelZoom(true);
-      
-      // 添加地图类型控件
-      map.addControl(new BMap.MapTypeControl());
-      
-      // 添加缩略图控件
-      map.addControl(new BMap.OverviewMapControl());
-      
-      // 添加比例尺控件
-      map.addControl(new BMap.ScaleControl());
-      
-      // 添加标注
-      marker = new BMap.Marker(point);
-      map.addOverlay(marker);
-      
-      // 添加信息窗口
-      const opts = {
-        width: 250,
-        height: 120,
-        title: "<span class='text-blue-600 font-bold'>公司总部</span>",
-        enableMessage: true
-      };
-      const infoWindow = new BMap.InfoWindow("<p class='text-gray-700'>地址：北京市海淀区中关村大街1号海龙大厦</p><p class='text-gray-700'>电话：010-12345678</p>", opts);
-      marker.addEventListener("click", function () {
-        map.openInfoWindow(infoWindow, point);
-      });
-      
-      // 初始化时打开信息窗口
-      map.openInfoWindow(infoWindow, point);
-      
-      // 绑定缩放按钮事件
-      document.getElementById('zoomIn').addEventListener('click', function() {
-        map.setZoom(map.getZoom() + 1);
-      });
-      
-      document.getElementById('zoomOut').addEventListener('click', function() {
-        map.setZoom(map.getZoom() - 1);
-      });
-    }
-    
-    // 页面加载完成后初始化地图
-    window.onload = initMap;
-  </script>
+
 </body>
 </html>
