@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你比我猜 - 随机词汇游戏</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .word-display {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 50px 20px;
+            margin: 25px 0;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2575fc;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 4px 6px rgba(0,0,0,0.05);
+            border: 2px dashed #6a11cb;
+            transition: all 0.3s ease;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .btn {
+            background: #4e54c8;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .btn:hover {
+            background: #2575fc;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        .btn:active {
+            transform: translateY(1px);
+        }
+        .nav-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .counter {
+            margin-top: 15px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        .file-upload {
+            margin: 25px 0;
+            padding: 15px;
+            background: #f0f5ff;
+            border-radius: 10px;
+        }
+        .instructions {
+            background: #eef7ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 25px;
+            text-align: left;
+            font-size: 0.95rem;
+            color: #444;
+        }
+        .instructions ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        @media (max-width: 480px) {
+            .word-display {
+                font-size: 2.2rem;
+                padding: 30px 15px;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+            .nav-btn {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 你比我猜 - 词语挑战</h1>
+        
+        <div class="file-upload">
+            <input type="file" id="fileInput" accept=".txt" style="display:none">
+            <button class="btn" id="uploadBtn">📁 上传词语文件</button>
+        </div>
+        
+        <div class="word-display" id="wordDisplay">
+            请上传词语文件或使用示例
+        </div>
+        
+        <div class="counter" id="counter">
+            0 / 0
+        </div>
+        
+        <div class="controls">
+            <button class="btn nav-btn" id="prevBtn">⬆️</button>
+            <button class="btn" id="shuffleBtn">🔀 随机打乱</button>
+            <button class="btn nav-btn" id="nextBtn">⬇️</button>
+        </div>
+        
+        <div class="instructions">
+            <strong>使用说明：</strong>
+            <ul>
+                <li>上传包含词语的TXT文件（每行一个词语）</li>
+                <li>点击"随机打乱"按钮重新排列词语顺序</li>
+                <li>使用上下箭头按钮切换词语</li>
+                <li>键盘方向键 ↑↓ 也可切换词语</li>
+                <li>手机用户可上下滑动屏幕切换词语</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+	    // 游戏数据
+        let words = []; // 存储所有词汇
+        let currentIndex = 0; // 当前展示词汇的索引
+        let shuffledWords = []; // 打乱后的词汇数组
+
+        // 获取DOM元素
+        const fileInput = document.getElementById('fileInput');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const wordDisplay = document.getElementById('wordDisplay');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const randomizeBtn = document.getElementById('shuffleBtn');
+
+        // 上传按钮点击事件：触发文件选择
+        uploadBtn.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // 文件选择后读取文件
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const content = event.target.result;
+                words = content.split('\n').filter(word => word.trim() !== '');
+                if (words.length === 0) {
+                    wordDisplay.textContent = '文件内容为空，请重新上传';
+                    return;
+                }
+                // 初始化：打乱顺序并显示第一个词
+                shuffleWords();
+                currentIndex = 0;
+                updateDisplay();
+                updateButtons();
+            };
+            reader.readAsText(file, 'UTF-8');
+        });
+
+        // 打乱数组顺序（Fisher-Yates算法）
+        function shuffleWords() {
+            shuffledWords = [...words];
+            for (let i = shuffledWords.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledWords[i], shuffledWords[j]] = [shuffledWords[j], shuffledWords[i]];
+            }
+        }
+
+<!--         // 更新显示
+        function updateDisplay() {
+            wordDisplay.textContent = shuffledWords[currentIndex];
+        }
+
+        // 更新按钮状态
+        function updateButtons() {
+            prevBtn.disabled = currentIndex <= 0;
+            nextBtn.disabled = currentIndex >= shuffledWords.length - 1;
+            randomizeBtn.disabled = shuffledWords.length === 0;
+        }
+ -->
+ 
+ 
+         // 更新显示
+        function updateDisplay() {
+            if (shuffledWords.length > 0 && currentIndex < shuffledWords.length) {
+                wordDisplay.textContent = shuffledWords[currentIndex];
+                counter.textContent = `${currentIndex + 1} / ${shuffledWords.length}`;
+            } else if (shuffledWords.length > 0) {
+                wordDisplay.textContent = "🎉 所有词语已展示完毕!";
+            }
+			
+        }
+ 
+		
+        // 上一个按钮
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateDisplay();
+                updateButtons();
+            }
+        });
+
+        // 下一个按钮
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < shuffledWords.length - 1) {
+                currentIndex++;
+                updateDisplay();
+                updateButtons();
+            }
+        });
+
+        // 重新打乱顺序
+        randomizeBtn.addEventListener('click', () => {
+            shuffleWords();
+            currentIndex = 0;
+            updateDisplay();
+            updateButtons();
+        }); 
+
+
+	
+
+
+        // 键盘事件
+        document.addEventListener('keydown', (e) => {
+            if (shuffledWords.length === 0) return;
+            if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                // 上箭头或左箭头：上一个
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateDisplay();
+                    updateButtons();
+                }
+            } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                // 下箭头或右箭头：下一个
+                if (currentIndex < shuffledWords.length - 1) {
+                    currentIndex++;
+                    updateDisplay();
+                    updateButtons();
+                }
+            }
+        });
+		
+		
+		
+    </script>
+</body>
+</html>
